@@ -1,22 +1,26 @@
-#User function Template for python3
 class Solution:
 
-	# Function to find maximum
-	# product subarray
-	def maxProduct(self,arr, n):
-		# code here
-		n=len(arr)
-		res=float('-inf')
-		prefixsum=1
-		suffixsum=1
-		for i in range(len(arr)):
-		    if prefixsum==0:
-		        prefixsum=1
-		    if suffixsum==0:
-		        suffixsum=1
-            prefixsum=prefixsum*arr[i]
-            suffixsum=suffixsum*arr[n-i-1]
-            res=max(res,prefixsum,suffixsum)
+    # Function to find maximum product subarray
+    def maxProduct(self, arr, n):
+        # Initial values
+        res = float('-inf')  # To handle negative numbers
+        prefixsum = 1
+        suffixsum = 1
+        
+        for i in range(n):
+            # Reset prefix and suffix if they become 0
+            if prefixsum == 0:
+                prefixsum = 1
+            if suffixsum == 0:
+                suffixsum = 1
+            
+            # Calculating prefix and suffix product
+            prefixsum *= arr[i]
+            suffixsum *= arr[n - i - 1]
+            
+            # Update result with the maximum of the current prefix and suffix products
+            res = max(res, prefixsum, suffixsum)
+        
         return res
 
 
