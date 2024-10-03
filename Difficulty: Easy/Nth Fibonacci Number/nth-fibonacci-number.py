@@ -5,10 +5,9 @@ class Solution:
         a=0
         b=1
         for i in range(n-1):
-            
-            c = (a + b)%1000000007
-            a = b
-            b = c
+            c=(a+b)%1000000007
+            a=b
+            b=c
         return b
             
         
